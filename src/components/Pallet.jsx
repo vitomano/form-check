@@ -1,20 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Modal } from './Modal'
 import { Range } from './Range'
 
 export const Pallet = ({ pallet }) => {
+
+    const [open, setOpen] = useState(false)
 
     const handleImages = (e) => {
         pallet.images = e.target.files
     }
 
-    /* FUNCIONA */
-    // const handleChange = (e, i) => {
-    //     pallet.data[i].valor = e.target.value
-    //     console.log(pallet.data[i].valor)
-    // }
 
     return (
-        <div className="card">
+        <div className="card mb-2">
             <h3 className="mb-1">Pallet</h3>
 
             {
@@ -27,20 +25,33 @@ export const Pallet = ({ pallet }) => {
                         minVal={inp.minVal}
                         maxVal={inp.maxVal}
                         valor={inp.valor}
+                        check={inp.check}
                         pallet={pallet}
                     />
                 ))
             }
 
+            <div className="mb-1">
+                <button onClick={() => setOpen(true)}>
+                    add item
+                </button>
+            </div>
+
+            {
+                open &&
+                <Modal />
+            }
+
 
             <input
-                className="upload-btn"
+                className="upload-btn mb-1"
                 accept=".jpg, .png, .jpeg"
                 multiple
                 name="file"
                 type="file"
                 onChange={handleImages}
             />
+            <hr />
         </div>
     )
 }

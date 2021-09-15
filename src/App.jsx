@@ -16,11 +16,11 @@ export const App = () => {
         id: i,
         images: [],
         data: [
-          { check: false, label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
-          { check: true, label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
-          { check: true, label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
-          { check: true, label: "Soft", name: "soft", minVal: 0, maxVal: 10, valor: 0 },
-          { check: true, label: "Unripe", name: "unripe", minVal: 0, maxVal: 10, valor: 0 }
+          { check: true, tipe:"range", valor: 0, label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10  },
+          { check: true, tipe:"range", valor: 0, label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10  },
+          { check: true, tipe:"range", valor: 0, label: "Mould", name: "mould", minVal: 0, maxVal: 10  },
+          { check: true, tipe:"range", valor: 0, label: "Soft", name: "soft", minVal: 0, maxVal: 10  },
+          { check: true, tipe:"range", valor: 0, label: "Unripe", name: "unripe", minVal: 0, maxVal: 10  }
         ]
       }])
 
@@ -39,8 +39,12 @@ export const App = () => {
       mainData[item.name] = item.value;
     }
 
-    //pallets[0].data[0].value = 6
-    console.log(pallets)
+
+    for(let pal of pallets){
+      const palo = pal.data
+      console.log(palo.filter( p => p.check === true ))
+    }
+    
 
   }
 
@@ -50,11 +54,11 @@ export const App = () => {
       id: pallets.length,
       images: [],
       data: [
-        { check: true, label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
-        { check: true, label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
-        { check: true, label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
-        { check: true, label: "Soft", name: "soft", minVal: 0, maxVal: 10, valor: 0 },
-        { check: true, label: "Unripe", name: "unripe", minVal: 0, maxVal: 10, valor: 0 }
+        { check: true, tipe:"range", label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Soft", name: "soft", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Unripe", name: "unripe", minVal: 0, maxVal: 10, valor: 0 }
       ]
     }])
 

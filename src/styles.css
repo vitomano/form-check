@@ -11,9 +11,11 @@ body{
     display: flex;
 }
 
-.range label{
+.label-name{
     width: 40%;
 }
 
 .mb-1{margin-bottom: .5rem;}
 .mb-2{margin-bottom: 1.5rem;}
+
+
