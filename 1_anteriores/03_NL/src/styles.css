@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    padding: 1rem;
+}
+.range{
+    display: flex;
+}
+
+.label-name{
+    width: 40%;
+}
+
+.mb-1{margin-bottom: .5rem;}
+.mb-2{margin-bottom: 1.5rem;}
+
+
