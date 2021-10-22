@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Modal } from './Modal'
-import { Range } from './Range'
+import React from 'react'
+//import { Modal } from './Modal'
+import { LabelsInput } from './LabelsInput'
+import { AppareanceInput } from './AppareanceInput'
 
 export const Pallet = ({ pallet }) => {
 
-    const [open, setOpen] = useState(false)
 
     const handleImages = (e) => {
         pallet.images = e.target.files
@@ -15,11 +15,14 @@ export const Pallet = ({ pallet }) => {
         <div className="card mb-2">
             <h3 className="mb-1">Pallet</h3>
 
+            <strong>Labels</strong>
+
             {
-                pallet.data.map((inp, i) => (
-                    <Range
+                pallet.labels.map((inp, i) => (
+                    <LabelsInput
                         key={i}
                         id={i}
+                        tipe={inp.tipe}
                         label={inp.label}
                         name={inp.name}
                         minVal={inp.minVal}
@@ -31,15 +34,23 @@ export const Pallet = ({ pallet }) => {
                 ))
             }
 
-            <div className="mb-1">
-                <button onClick={() => setOpen(true)}>
-                    add item
-                </button>
-            </div>
+            <strong>Appareance</strong>
 
             {
-                open &&
-                <Modal />
+                pallet.appareance.map((inp, i) => (
+                    <AppareanceInput
+                        key={i}
+                        id={i}
+                        tipe={inp.tipe}
+                        label={inp.label}
+                        name={inp.name}
+                        minVal={inp.minVal}
+                        maxVal={inp.maxVal}
+                        valor={inp.valor}
+                        check={inp.check}
+                        pallet={pallet}
+                    />
+                ))
             }
 
 

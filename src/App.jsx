@@ -15,12 +15,39 @@ export const App = () => {
       setPallets(c => [...c, {
         id: i,
         images: [],
-        data: [
-          { check: true, tipe:"range", valor: 0, label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10  },
-          { check: true, tipe:"range", valor: 0, label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10  },
-          { check: true, tipe:"range", valor: 0, label: "Mould", name: "mould", minVal: 0, maxVal: 10  },
-          { check: true, tipe:"range", valor: 0, label: "Soft", name: "soft", minVal: 0, maxVal: 10  },
-          { check: true, tipe:"range", valor: 0, label: "Unripe", name: "unripe", minVal: 0, maxVal: 10  }
+        labels: [
+          { check: true, tipe:"checkbox", label: "Box Label", name: "box_label", valor: true },
+          { check: true, tipe:"checkbox", label: "Punnet Label", name: "punnet_label", valor: true },
+          { check: true, tipe:"checkbox", label: "Name & Weight", name: "name_weight", valor: true },
+          { check: true, tipe:"text", label: "L Code", name: "l_code", valor: "" },
+          { check: true, tipe:"text", label: "T Code", name: "t_code", valor: "" },
+          { check: true, tipe:"text", label: "EAN Code", name: "ean_code", valor: "" },
+          { check: true, tipe:"text", label: "Variety", name: "variety", valor: "" },
+         
+        ],
+        appareance: [
+          { check: true, tipe:"checkbox", label: "Insect", name: "insect", valor: true },
+          { check: true, tipe:"range", label: "Fresh", name: "fresh", minVal: 1, maxVal: 7, valor: 0 },
+          { check: true, tipe:"range", label: "Size", name: "size", minVal: 1, maxVal: 7, valor: 0 },
+          { check: true, tipe:"range", label: "Coloration", name: "coloration", minVal: 1, maxVal: 7, valor: 0 },
+          { check: true, tipe:"range", label: "Taste", name: "taste", minVal: 1, maxVal: 7, valor: 0 },
+          { check: true, tipe:"checkbox", label: "Pollution", name: "pollution", valor: true },
+          { check: true, tipe:"checkbox", label: "Humidity", name: "humidity", valor: true },
+          { check: true, tipe:"checkbox", label: "Juicing", name: "juicing", valor: true },
+          { check: true, tipe:"checkbox", label: "Wet", name: "wet", valor: true },
+          { check: true, tipe:"range", label: "Pallet Integrity", name: "pallet_integrity", minVal: 1, maxVal: 7, valor: 0 },
+          { check: true, tipe:"number", label: "Temperature C", name: "temperature", valor: 0 },
+          { check: true, tipe:"number", label: "Brix", name: "brix", valor: 0 },
+          { check: true, tipe:"number", label: "Weight Check", name: "weight_check", valor: 0 },
+
+          
+        ],
+        pallgrow: [
+          { check: true, tipe:"range", label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
+          { check: true, tipe:"range", label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
+          { check: true, tipe:"range", label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
+          { check: true, tipe:"range", label: "Soft", name: "soft", minVal: 0, maxVal: 10, valor: 0 },
+          { check: true, tipe:"range", label: "Unripe", name: "unripe", minVal: 0, maxVal: 10, valor: 0 }
         ]
       }])
 
@@ -41,11 +68,13 @@ export const App = () => {
 
 
     for(let pal of pallets){
-      const palo = pal.data
+      const palo = pal.labels
       console.log(palo.filter( p => p.check === true ))
+      console.log(pal.images)
     }
     
 
+    console.log(mainData)
   }
 
   const handleAddNew = () => {
@@ -53,7 +82,21 @@ export const App = () => {
     setPallets(c => [...c, {
       id: pallets.length,
       images: [],
-      data: [
+      labels: [
+        { check: true, tipe:"range", label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Soft", name: "soft", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Unripe", name: "unripe", minVal: 0, maxVal: 10, valor: 0 }
+      ],
+      appareance: [
+        { check: true, tipe:"range", label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Soft", name: "soft", minVal: 0, maxVal: 10, valor: 0 },
+        { check: true, tipe:"range", label: "Unripe", name: "unripe", minVal: 0, maxVal: 10, valor: 0 }
+      ],
+      pallgrow: [
         { check: true, tipe:"range", label: "Check Weight", name: "check_weight", minVal: 0, maxVal: 10, valor: 0 },
         { check: true, tipe:"range", label: "Fruit punnet", name: "fruit_punnet", minVal: 0, maxVal: 10, valor: 0 },
         { check: true, tipe:"range", label: "Mould", name: "mould", minVal: 0, maxVal: 10, valor: 0 },
